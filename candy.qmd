@@ -1,0 +1,82 @@
+---
+title: "Candy"
+author: "P Cheng"
+date: "11/2/26"
+format:
+  dashboard:
+    theme: sketchy
+---
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+
+#read in data, should not show up on dashboard
+
+library(tidyverse)
+library(plotly)
+
+#data.fivethirtyeight.com / silver bulletin
+#for prediction using data
+
+# install.packages("fivethirtyeight")
+library(fivethirtyeight)
+
+candy <- fivethirtyeight::candy_rankings
+# candy
+candy <- candy |>
+  mutate(type =
+                case_when(
+                          chocolate & fruity ~ "both", # ORDER MATTERS
+                          chocolate ~ "chocolate",
+                          fruity ~ "fruity",
+                          .default = "other"
+                          )
+         )
+count(candy, type)
+```
+
+## Row 1
+
+```{r}
+#| content: valuebox
+#| title: "Total Candies"
+
+list(
+  icon = "basket",
+  color = "warning",
+  value = nrow(candy) # number of rows in candy dataset (85)
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Number of Fruity Candies"
+
+list(
+  icon = "basket",
+  color = "warning",
+  ###number of rows in candy dataset (85)
+  # value = count(candy, fruity == "TRUE") # 38; DOESN'T WORK SINCE IT OUTPUTS A TABLE, NOT A VALUE
+  
+  value = nrow(candy[candy$fruity == "TRUE", ]) # 38
+  
+  # value = sum(candy$type == "fruity") # 37; works because type is our newly made column that filters for 1) fruity + chocolate, 2) exclusively fruity, and 3) exclusively chocolate
+  
+  # value = sum(candy$fruity == "TRUE" & candy$chocolate == "FALSE", na.rm = TRUE) # 38 without the candy$chocolate condition, 37 with it
+  
+  
+  
+  
+  
+  # filter$type == "fruity"; ALSO WORKS
+)
+```
+
+## Row 2
+
+```{r}
+
+```
+
+```{r}
+
+```

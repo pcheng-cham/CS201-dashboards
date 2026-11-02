@@ -45,17 +45,23 @@ ggplotly(bill_length_by_island)
 ## Row 2 {.tabset}
 
 ```{r, warning = FALSE}
+#| title: Flipper Length by Mass
+
 # body mass by flipper length
-##| title: Flipper Length by Mass
-ggplot(myData, aes(body_mass_g, flipper_length_mm, color = species)) +
+flipperByMass <- ggplot(myData, aes(body_mass_g, flipper_length_mm, color = species)) +
   geom_point()
+
+ggplotly(flipperByMass)
 ```
 
 ```{r, warning = FALSE}
+#| title: Bill Length by Mass
+
 # body mass by bill length
-##| title: Bill Length by Mass
-ggplot(myData, aes(body_mass_g, bill_length_mm, color = species)) +
+bodyMassByBillLength <- ggplot(myData, aes(body_mass_g, bill_length_mm, color = species)) +
   geom_point()
+
+ggplotly(bodyMassByBillLength)
 ```
 
 # Page 2 - Data table
