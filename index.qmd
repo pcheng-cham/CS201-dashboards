@@ -1,11 +1,10 @@
 ---
-title: "CS201-dashboards"
+title: "Sample CS201-dashboards projects"
+format: html
 ---
 
-This is a Quarto website.
+- Project 1 (hyperlink)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+- Project 2 (hyperlink)
 
-```{r}
-1 + 1
-```
+- Final Project (hyperlink) to this
