@@ -1,0 +1,49 @@
+---
+title: "About"
+---
+
+## [This website is a website exercise for an assignment from the CS201 class.]{.underline}
+
+To learn more about this assignment, visit <a href="https://chaminade.instructure.com/courses/46459/assignments/529498?module_item_id=1373733" target = "blank">the Canvas link</a>.
+
+For additional references:
+
+- <a href="https://github.com/abcamp/dashboards" target = "blank">Amber's example</a>.
+
+- <a href="https://quarto.org/docs/dashboards/" target = "blank">Quarto Dashboards documentation</a>
+
+- <a href="https://github.com/fivethirtyeight/data/tree/master/candy-power-ranking" target = "blank">fivethirtyeight's candy repo (supplemental info)</a>.
+
+### [Instructions]{.underline}
+
+1.  **Get your task.** Roll a die (or use `sample(1:6, 1)` in R) to get your task card from the list below. You may work in pairs, but each person must publish and submit their own dashboard.
+
+2.  **Build your dashboard** using `fivethirtyeight::candy_rankings`. Note that the ingredient columns are TRUE/FALSE. Your dashboard must answer your task card’s question and include at least:
+
+    - one value box
+
+    - one interactive plot (`ggplotly`)
+
+    - one table (`knitr::kable` or `DT::datatable`)
+
+    - something that organizes the layout (pages, tabs, or a sidebar)
+
+    Then customize it with titles, labels, colors, etc. You can add anything you want.
+
+3.  **Publish it** to your `dashboards` repo so it’s live at `<yourname>.github.io/dashboards/candy.html` OR `<yourname>.github.io/CS201-dashboards/candy.html` in my case. Check the link and make sure it works!
+
+4.  **Submit** a “done!” message here on Canvas that includes your live URL (and your partner’s name, if you worked in a pair).
+
+### [Task Cards]{.underline}
+
+1.  **Chocolate vs. Fruity Showdown.** Which side wins? Show value boxes for each side’s average win %, a plot comparing them, and a table of the top 5 in each camp.
+
+2.  **Best Bang for Your Buck.** Your client wants candy that’s popular *and* cheap. Make an interactive scatter of price vs. win % with candy names on hover, plus a table of your “best value” picks.
+
+3.  **Sugar Rush.** Does more sugar mean more popular? Make a scatter with a trend line, plus value boxes for the most and least sugary candies.
+
+4.  **Bars vs. Bags.** Do people prefer candy bars (`bar`) or bags of small pieces (`pluribus`)? Use tabs or pages for each, plus a plot comparing them.
+
+5.  **Design the Ultimate Candy.** Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”
+
+6.  **Trick-or-Treat Bowl Planner.** A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot.

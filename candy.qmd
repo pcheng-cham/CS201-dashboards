@@ -4,7 +4,7 @@ author: "P Cheng"
 date: "11/2/26"
 format:
   dashboard:
-    theme: sketchy
+    theme: quartz
 ---
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
@@ -31,7 +31,24 @@ candy <- candy |>
                           .default = "other"
                           )
          )
-count(candy, type)
+
+# count(candy, type)
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+##### NOTES
+### Chocolate vs. Fruity Showdown.
+#       - Which side wins?
+#           ASK HOW TO HANDLE CANDY THAT'S BOTH CHOCOLATE + FRUITY
+#       - Show value boxes for each side’s average win %,
+#           TODO: filter dataframe into 2 tables (1. chocolate, 2. fruity)
+#                 get average for total of win %
+#       - a plot comparing them,
+#           WHAT KIND OF PLOT/COMPARING WHAT SPECIFICALLY?
+#       - and a table of the top 5 in each camp.
+#           TODO: filter dataframe into 2 tables (1. chocolate, 2. fruity)
+#                 filter each again by specific value to lower count to top 5 (use win % and look for >= value of 5th place for both)
+
 ```
 
 ## Row 1
@@ -57,17 +74,17 @@ list(
   ###number of rows in candy dataset (85)
   # value = count(candy, fruity == "TRUE") # 38; DOESN'T WORK SINCE IT OUTPUTS A TABLE, NOT A VALUE
   
-  value = nrow(candy[candy$fruity == "TRUE", ]) # 38
+  # value = nrow(candy[candy$fruity == "TRUE", ]) # 38; slow due to duplicating dataframe, AND if NA values exist, will be added to count
   
-  # value = sum(candy$type == "fruity") # 37; works because type is our newly made column that filters for 1) fruity + chocolate, 2) exclusively fruity, and 3) exclusively chocolate
+  value = sum(candy$type == "fruity") # 37 (Amber's solution); works because type is our newly made column that filters for 1) fruity + chocolate, 2) exclusively fruity, and 3) exclusively chocolate
   
   # value = sum(candy$fruity == "TRUE" & candy$chocolate == "FALSE", na.rm = TRUE) # 38 without the candy$chocolate condition, 37 with it
   
   
   
-  
-  
-  # filter$type == "fruity"; ALSO WORKS
+  # value = candy |>              # ALSO WORKS, ASK NIKKOS
+  #   filter(type == "fruity") |>
+  #   nrow()
 )
 ```
 

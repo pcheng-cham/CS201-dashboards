@@ -9,6 +9,11 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - penguins.qmd
+      - candy.qmd
+      - href: https://pcheng-cham.github.io/
+        text: My Main Page
+        icon: house-door
 
 format:
   html:

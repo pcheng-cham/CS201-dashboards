@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "To learn more about this assignment, visit the Canvas link, or Amber’s example.’\n\n\n\nGet your task. Roll a die (or use sample(1:6, 1) in R) to get your task card from the list below. You may work in pairs, but each person must publish and submit their own dashboard.\nBuild your dashboard using fivethirtyeight::candy_rankings. Note that the ingredient columns are TRUE/FALSE. Your dashboard must answer your task card’s question and include at least:\n\none value box\none interactive plot (ggplotly)\none table (knitr::kable or DT::datatable)\nsomething that organizes the layout (pages, tabs, or a sidebar)\n\nThen customize it with titles, labels, colors, etc. You can add anything you want.\nPublish it to your dashboards repo so it’s live at &lt;yourname&gt;.github.io/dashboards/candy.html. Check the link and make sure it works!\nSubmit a “done!” message here on Canvas that includes your live URL (and your partner’s name, if you worked in a pair).\n\n\n\n\n\nChocolate vs. Fruity Showdown. Which side wins? Show value boxes for each side’s average win %, a plot comparing them, and a table of the top 5 in each camp.\nBest Bang for Your Buck. Your client wants candy that’s popular and cheap. Make an interactive scatter of price vs. win % with candy names on hover, plus a table of your “best value” picks.\nSugar Rush. Does more sugar mean more popular? Make a scatter with a trend line, plus value boxes for the most and least sugary candies.\nBars vs. Bags. Do people prefer candy bars (bar) or bags of small pieces (pluribus)? Use tabs or pages for each, plus a plot comparing them.\nDesign the Ultimate Candy. Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”\nTrick-or-Treat Bowl Planner. A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot."
   },
   {
     "objectID": "index.html",
@@ -12,5 +12,19 @@
     "title": "CS201-dashboards",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html#this-website-is-a-website-exercise-for-an-assignment-from-the-cs201-class.",
+    "href": "about.html#this-website-is-a-website-exercise-for-an-assignment-from-the-cs201-class.",
+    "title": "About",
+    "section": "",
+    "text": "To learn more about this assignment, visit the Canvas link, or Amber’s example.’\n\n\n\nGet your task. Roll a die (or use sample(1:6, 1) in R) to get your task card from the list below. You may work in pairs, but each person must publish and submit their own dashboard.\nBuild your dashboard using fivethirtyeight::candy_rankings. Note that the ingredient columns are TRUE/FALSE. Your dashboard must answer your task card’s question and include at least:\n\none value box\none interactive plot (ggplotly)\none table (knitr::kable or DT::datatable)\nsomething that organizes the layout (pages, tabs, or a sidebar)\n\nThen customize it with titles, labels, colors, etc. You can add anything you want.\nPublish it to your dashboards repo so it’s live at &lt;yourname&gt;.github.io/dashboards/candy.html. Check the link and make sure it works!\nSubmit a “done!” message here on Canvas that includes your live URL (and your partner’s name, if you worked in a pair).\n\n\n\n\n\nChocolate vs. Fruity Showdown. Which side wins? Show value boxes for each side’s average win %, a plot comparing them, and a table of the top 5 in each camp.\nBest Bang for Your Buck. Your client wants candy that’s popular and cheap. Make an interactive scatter of price vs. win % with candy names on hover, plus a table of your “best value” picks.\nSugar Rush. Does more sugar mean more popular? Make a scatter with a trend line, plus value boxes for the most and least sugary candies.\nBars vs. Bags. Do people prefer candy bars (bar) or bags of small pieces (pluribus)? Use tabs or pages for each, plus a plot comparing them.\nDesign the Ultimate Candy. Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”\nTrick-or-Treat Bowl Planner. A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot."
+  },
+  {
+    "objectID": "about.html#task-cards-1",
+    "href": "about.html#task-cards-1",
+    "title": "About",
+    "section": "Task Cards",
+    "text": "Task Cards\n\nChocolate vs. Fruity Showdown. Which side wins? Show value boxes for each side’s average win %, a plot comparing them, and a table of the top 5 in each camp.\nBest Bang for Your Buck. Your client wants candy that’s popular and cheap. Make an interactive scatter of price vs. win % with candy names on hover, plus a table of your “best value” picks.\nSugar Rush. Does more sugar mean more popular? Make a scatter with a trend line, plus value boxes for the most and least sugary candies.\nBars vs. Bags. Do people prefer candy bars (bar) or bags of small pieces (pluribus)? Use tabs or pages for each, plus a plot comparing them.\nDesign the Ultimate Candy. Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”\nTrick-or-Treat Bowl Planner. A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot."
   }
 ]
