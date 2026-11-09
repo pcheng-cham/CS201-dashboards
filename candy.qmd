@@ -90,10 +90,62 @@ list(
 
 ## Row 2
 
-```{r}
+### Column 1
 
+```{r}
+#| title: "Candy type win % boxplot + scatter plot"
+
+# making combined boxplot and scatter plot
+myBoxPlot <- ggplot(candy, aes(type,
+                             winpercent,
+                             color = type,
+                             fill = type)
+                  ) +
+  # set botplot to slight transparency to see jitter
+  geom_boxplot(aes(alpha = 0.2)) +
+  geom_jitter(aes(text = paste("Candy Name:", competitorname,"<br>",
+                               "Win Percent:", round(winpercent, 1), "%")
+                  # TODO: width for cage of where points can display
+                  )
+              ) +
+  # custom colors for candy types
+  # color reference:  https://derekogle.com/NCGraphing/resources/colors
+  scale_color_manual(values = c(chocolate = "brown",
+                                fruity = "green4",
+                                other = "darkgray",
+                                both = "darkolivegreen")) +
+  scale_fill_manual(values = c(chocolate = "brown",
+                               fruity = "green",
+                               other = "gray",
+                               both = "darkolivegreen")) +
+  labs(title = "Candy type win %",
+       x = "Types of Candies",
+       y = "Win %")
+
+ggplotly(myBoxPlot, tooltip = "text")
 ```
 
 ```{r}
+#| title: "Top 5 of each candy type data"
+
+# needs dplyr for "select()" function
+library(dplyr)
+
+candySorted <- candy
+candySorted %>%
+  arrange(desc(winpercent)) %>%
+  select(
+    competitorname,
+    type,
+    winpercent,
+    sugarpercent,
+    pricepercent
+  )
+
+candySorted
+
+
+# topFiveChoco <- filter(candySorted, type == "chocolate")
+# topFiveChoco[1:5, c("Candy", "Type", "Win %", "Sugar percentile", "Price percentile")topFiveChoco]
 
 ```
