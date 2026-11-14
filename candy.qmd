@@ -51,56 +51,148 @@ candy <- candy |>
 
 ```
 
-## Row 1
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+
+### sorting candy by win % for futher usage
+# needs dplyr for "select()" function
+library(dplyr)
+
+candySorted <- candy
+
+candySorted <- candySorted %>%
+  arrange(desc(winpercent)) %>%
+  select(
+    competitorname,
+    type,
+    winpercent,
+    sugarpercent,
+    pricepercent
+  )
+
+# candySorted
+##### ASK ABOUT WHERE TO PUT THIS; SHOULDN'T BE UP HERE????
+```
+
+# Top Candies
+
+## Row 1 {.tabset}
 
 ```{r}
-#| content: valuebox
-#| title: "Total Candies"
+#| title: "Top 5 Head-to-Head - 'Chocolate VS Fruity' by Win Percentage"
 
-list(
-  icon = "basket",
-  color = "warning",
-  value = nrow(candy) # number of rows in candy dataset (85)
-)
+# filters sorted candy by win %  by only chocolate, AND takes only top 5
+topFiveChoco <- filter(candySorted, type == "chocolate") %>%
+  slice(1:5)
+# topFiveChoco
+
+# filters sorted candy by win %  by only fruity, AND takes only top 5
+topFiveFruity <- filter(candySorted, type == "fruity") %>%
+  slice(1:5)
+# topFiveFruity
+
+# combines the two datasets
+combinedTopFiveVS <- bind_rows(topFiveChoco, topFiveFruity) %>%
+  arrange(desc(winpercent))
+# combinedTopFiveVS
+
+
+vsPlot <- ggplot(combinedTopFiveVS, aes(
+  x = reorder(competitorname, -winpercent), 
+  y = winpercent,
+  fill = type,
+  text = paste0(
+    "Candy: ", competitorname, "<br>",
+    "Win %: ", round(winpercent, 2), "%<br>",
+    "Sugar Percentile: ", round(sugarpercent * 100, 2), "%<br>",
+    "Price Percentile: ", round(pricepercent * 100, 2), "%"
+  )
+)) +
+  geom_col() +
+  scale_fill_manual(values = c("chocolate" = "brown",
+                               "fruity" = "green")) +
+  labs(
+    title = "Top 5 Head-to-Head: 'Chocolate VS Fruity' by Win Percentage",
+    x = "Candy",
+    y = "Win Percentage (%)",
+    fill = "Candy Type"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(vsPlot, tooltip = "text")
 ```
 
 ```{r}
-#| content: valuebox
-#| title: "Number of Fruity Candies"
+#| title: "Top 10 Chocolate Candies by Win Percentage"
 
-list(
-  icon = "basket",
-  color = "warning",
-  ###number of rows in candy dataset (85)
-  # value = count(candy, fruity == "TRUE") # 38; DOESN'T WORK SINCE IT OUTPUTS A TABLE, NOT A VALUE
-  
-  # value = nrow(candy[candy$fruity == "TRUE", ]) # 38; slow due to duplicating dataframe, AND if NA values exist, will be added to count
-  
-  value = sum(candy$type == "fruity") # 37 (Amber's solution); works because type is our newly made column that filters for 1) fruity + chocolate, 2) exclusively fruity, and 3) exclusively chocolate
-  
-  # value = sum(candy$fruity == "TRUE" & candy$chocolate == "FALSE", na.rm = TRUE) # 38 without the candy$chocolate condition, 37 with it
-  
-  
-  
-  # value = candy |>              # ALSO WORKS, ASK NIKKOS
-  #   filter(type == "fruity") |>
-  #   nrow()
-)
+# filters sorted candy by win %  by only chocolate, AND only take top 10
+topTenChoco <- filter(candySorted, type == "chocolate") %>%
+  slice(1:10)
+# topTenChoco
+
+chocoPlot <- ggplot(topTenChoco, aes(
+  x = reorder(competitorname, -winpercent), 
+  y = winpercent,
+  text = paste0(
+    "Candy: ", competitorname, "<br>",
+    "Win %: ", round(winpercent, 2), "%<br>",
+    "Sugar Percentile: ", round(sugarpercent * 100, 2), "%<br>",
+    "Price Percentile: ", round(pricepercent * 100, 2), "%"
+  )
+)) +
+  geom_col(fill = "brown") +
+  labs(
+    title = "Top 10 Chocolate Candies by Win Percentage",
+    x = "Candy",
+    y = "Win Percentage (%)"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(chocoPlot, tooltip = "text")
 ```
 
-## Row 2
+```{r}
+#| title: "Top 10 Fruity Candies by Win Percentage"
 
-### Column 1
+# filters sorted candy by win %  by only fruity, AND take only top 10
+topTenFruity <- filter(candySorted, type == "fruity") %>%
+  slice(1:10)
+# topTenFruity
+
+fruityPlot <- ggplot(topTenFruity, aes(
+  x = reorder(competitorname, -winpercent), 
+  y = winpercent,
+  text = paste0(
+    "Candy: ", competitorname, "<br>",
+    "Win %: ", round(winpercent, 2), "%<br>",
+    "Sugar Percentile: ", round(sugarpercent * 100, 2), "%<br>",
+    "Price Percentile: ", round(pricepercent * 100, 2), "%"
+  )
+)) +
+  geom_col(fill = "green") +
+  labs(
+    title = "Top 10 Fruity Candies by Win Percentage",
+    x = "Candy",
+    y = "Win Percentage (%)"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(fruityPlot, tooltip = "text")
+```
+
+# Scatter + Boxplot
 
 ```{r}
 #| title: "Candy type win % boxplot + scatter plot"
 
 # making combined boxplot and scatter plot
 myBoxPlot <- ggplot(candy, aes(type,
-                             winpercent,
-                             color = type,
-                             fill = type)
-                  ) +
+                               winpercent,
+                               color = type,
+                               fill = type)
+                    ) +
   # set botplot to slight transparency to see jitter
   geom_boxplot(aes(alpha = 0.2)) +
   geom_jitter(aes(text = paste("Candy Name:", competitorname,"<br>",
@@ -125,27 +217,137 @@ myBoxPlot <- ggplot(candy, aes(type,
 ggplotly(myBoxPlot, tooltip = "text")
 ```
 
+# The Numbers
+
+## Row 1
+
 ```{r}
-#| title: "Top 5 of each candy type data"
+#| content: valuebox
+#| title: "Total Candies"
 
-# needs dplyr for "select()" function
-library(dplyr)
+list(
+  icon = "basket",
+  color = "light",
+  value = nrow(candy) # number of rows in candy dataset (85)
+)
+```
 
-candySorted <- candy
+```{r}
+#| content: valuebox
+#| title: "Number of Chocolate Candies"
+
+list(
+  icon = "bag",
+  color = "danger",
+  ###number of rows in candy dataset (85)
+  # value = count(candy, fruity == "TRUE") # 38; DOESN'T WORK SINCE IT OUTPUTS A TABLE, NOT A VALUE
+  
+  # value = nrow(candy[candy$fruity == "TRUE", ]) # 38; slow due to duplicating dataframe, AND if NA values exist, will be added to count
+  
+  value = sum(candy$type == "chocolate")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Number of Fruity Candies"
+
+list(
+  icon = "bag-fill",
+  color = "success",
+  ###number of rows in candy dataset (85)
+  # value = count(candy, fruity == "TRUE") # 38; DOESN'T WORK SINCE IT OUTPUTS A TABLE, NOT A VALUE
+  
+  # value = nrow(candy[candy$fruity == "TRUE", ]) # 38; slow due to duplicating dataframe, AND if NA values exist, will be added to count
+  
+  value = sum(candy$type == "fruity") # 37 (Amber's solution); works because type is our newly made column that filters for 1) fruity + chocolate, 2) exclusively fruity, and 3) exclusively chocolate
+  
+  # value = sum(candy$fruity == "TRUE" & candy$chocolate == "FALSE", na.rm = TRUE) # 38 without the candy$chocolate condition, 37 with it
+  
+  # value = candy |>              # ALSO WORKS, ASK NIKKOS
+  #   filter(type == "fruity") |>
+  #   nrow()
+)
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+
+onlyChoco <- filter(candySorted, type == "chocolate")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average Win % (chocolate)"
+
+list(
+  icon  = "trophy",
+  color = "warning",
+  value = paste0(
+                  round(
+                        mean(onlyChoco$winpercent),
+                        2),
+                  "%"
+                  )
+)
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+
+onlyFruity <- filter(candySorted, type == "fruity")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average Win % (fruity)"
+
+list(
+  icon  = "award",
+  color = "secondary",
+  value = paste0(
+    round(
+      mean(onlyFruity$winpercent),
+      2),
+    "%"
+  )
+)
+```
+
+## Row 2
+
+```{r}
+#| Title: "Table of All Candies"
+
+### without piping; just displays raw candySorted dataframe
+# knitr::kable(candySorted,
+#              col.names = c("Candy",
+#                            "Type",
+#                            "Win %",
+#                            "Sugar %",
+#                            "Price %")
+#              )
+
 candySorted %>%
-  arrange(desc(winpercent)) %>%
-  select(
-    competitorname,
-    type,
-    winpercent,
-    sugarpercent,
-    pricepercent
+  mutate(winpercent = round(winpercent, 2),
+         sugarpercent = round(sugarpercent * 100, 2),
+         pricepercent = round(pricepercent * 100, 2)
+  ) %>%
+  knitr::kable(,
+               col.names = c("Candy",
+                             "Type",
+                             "Win %",
+                             "Sugar %",
+                             "Price %"),
+               caption = "All Candies"
   )
 
-candySorted
-
-
-# topFiveChoco <- filter(candySorted, type == "chocolate")
-# topFiveChoco[1:5, c("Candy", "Type", "Win %", "Sugar percentile", "Price percentile")topFiveChoco]
-
+##### AMBER CLEAN METHOD
+# sortedCandy |>
+#   arrange(desc(winpercent)) |>
+#   transmute(
+#     Candy          = competitorname,
+#     Type           = type,
+#     `Win %`        = round(winpercent, 1),
+#     `Sugar pctile` = round(sugarpercent * 100),
+#     `Price pctile` = round(pricepercent * 100)) |>
+#   knitr::kable()
 ```
