@@ -9,8 +9,9 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - penguins.qmd
+      # - penguins.qmd  # removed for Candy Dashboard assignment
       - candy.qmd
+        # text: Candy Dashboard  # ASK WHY THIS DOESNT WORK
       - href: https://pcheng-cham.github.io/
         text: My Main Page
         icon: house-door

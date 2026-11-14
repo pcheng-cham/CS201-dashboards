@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Sample CS201-dashboards projects",
     "section": "",
-    "text": "Project 1 (hyperlink)\nProject 2 (hyperlink)\nFinal Project (hyperlink) to this"
+    "text": "Assignment 7 (a personal website)\nAssignment 8 (a candy-themed dashboard)"
   },
   {
     "objectID": "about.html#this-website-is-a-website-exercise-for-an-assignment-from-the-cs201-class.",
@@ -26,5 +26,33 @@
     "title": "About",
     "section": "Task Cards",
     "text": "Task Cards\n\nChocolate vs. Fruity Showdown. Which side wins? Show value boxes for each side’s average win %, a plot comparing them, and a table of the top 5 in each camp.\nBest Bang for Your Buck. Your client wants candy that’s popular and cheap. Make an interactive scatter of price vs. win % with candy names on hover, plus a table of your “best value” picks.\nSugar Rush. Does more sugar mean more popular? Make a scatter with a trend line, plus value boxes for the most and least sugary candies.\nBars vs. Bags. Do people prefer candy bars (bar) or bags of small pieces (pluribus)? Use tabs or pages for each, plus a plot comparing them.\nDesign the Ultimate Candy. Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”\nTrick-or-Treat Bowl Planner. A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot."
+  },
+  {
+    "objectID": "about.html#about-this-dashboard",
+    "href": "about.html#about-this-dashboard",
+    "title": "About",
+    "section": "About this dashboard",
+    "text": "About this dashboard\nThe data originates from FiveThirtyEight’s Halloween candy survey.\nPeople picked between two candies they were shown.\nWin % is how often a candy won those during those matchups. 50% means it won half the time.\nReading the box plot: each dot is one candy, and the box shows the middle 50% of candies of that type. “Both” has only one candy (chocolate and fruity), so it’s just a single dot, not a real distribution.\nHover over any dot to see the candy’s name."
+  },
+  {
+    "objectID": "index.html#here-are-some-sample-projects-i-have-worked-on.",
+    "href": "index.html#here-are-some-sample-projects-i-have-worked-on.",
+    "title": "Sample CS201-dashboards projects",
+    "section": "",
+    "text": "Assignment 7 (a personal website)\nAssignment 8 (a candy-themed dashboard)"
+  },
+  {
+    "objectID": "index.html#here-are-some-projects-i-have-worked-on.",
+    "href": "index.html#here-are-some-projects-i-have-worked-on.",
+    "title": "Sample CS201-dashboards projects",
+    "section": "",
+    "text": "Assignment 7 (a personal website)\nAssignment 8 (a candy-themed dashboard)"
+  },
+  {
+    "objectID": "index.html#here-are-some-sample-projects-i-used-as-references",
+    "href": "index.html#here-are-some-sample-projects-i-used-as-references",
+    "title": "Sample CS201-dashboards projects",
+    "section": "Here are some sample projects I used as references:",
+    "text": "Here are some sample projects I used as references:\n\nPalmer Penguins (a bare-bones penguin-themed dashboard)"
   }
 ]

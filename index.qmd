@@ -3,8 +3,12 @@ title: "Sample CS201-dashboards projects"
 format: html
 ---
 
-- Project 1 (hyperlink)
+## Here are some projects I have worked on.
 
-- Project 2 (hyperlink)
+- <a href="https://pcheng-cham.github.io/" target="_blank">Assignment 7 (a personal website)</a>
 
-- Final Project (hyperlink) to this
+- <a href="https://pcheng-cham.github.io/CS201-dashboards/candy.html" target="_blank">Assignment 8 (a candy-themed dashboard)</a>
+
+## Here are some sample projects I used as references:
+
+- <a href="https://pcheng-cham.github.io/CS201-dashboards/penguins.html" target="_blank">Palmer Penguins (a bare-bones penguin-themed dashboard)</a>

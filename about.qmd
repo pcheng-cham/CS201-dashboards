@@ -47,3 +47,15 @@ For additional references:
 5.  **Design the Ultimate Candy.** Which ingredients show up in the winners? Compare ingredient frequency in the top 20 vs. the bottom 20, and end with your “recipe.”
 
 6.  **Trick-or-Treat Bowl Planner.** A homeowner wants to buy 10 candies for their bowl. Pick them and justify your choices, with a table, a value box for the bowl’s average win %, and a plot.
+
+## About this dashboard
+
+**The data originates from FiveThirtyEight’s Halloween candy survey.**
+
+**People picked between two candies they were shown.**
+
+**Win % is how often a candy won those during those matchups. 50% means it won half the time.**
+
+**Reading the box plot:** each dot is one candy, and the box shows the middle 50% of candies of that type. “Both” has only one candy (chocolate *and* fruity), so it’s just a single dot, not a real distribution.
+
+**Hover over any dot to see the candy’s name.**

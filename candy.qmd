@@ -1,5 +1,5 @@
 ---
-title: "Candy"
+title: "Candy Ranking"
 author: "P Cheng"
 date: "11/2/26"
 format:
