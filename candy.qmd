@@ -234,7 +234,7 @@ list(
 
 ```{r}
 #| content: valuebox
-#| title: "Number of Chocolate Candies"
+#| title: "Number of Exclusively Chocolate Candies"
 
 list(
   icon = "bag",
@@ -250,7 +250,7 @@ list(
 
 ```{r}
 #| content: valuebox
-#| title: "Number of Fruity Candies"
+#| title: "Number of Exclusively Fruity Candies"
 
 list(
   icon = "bag-fill",
@@ -299,6 +299,9 @@ onlyFruity <- filter(candySorted, type == "fruity")
 ```{r}
 #| content: valuebox
 #| title: "Average Win % (fruity)"
+
+##### ASK ABOUT WHY COLOR THIS COLOR DOESN'T WORK
+# https://bootswatch.com/quartz/
 
 list(
   icon  = "award",
