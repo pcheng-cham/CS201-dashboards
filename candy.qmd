@@ -212,7 +212,8 @@ myBoxPlot <- ggplot(candy, aes(type,
                                both = "darkolivegreen")) +
   labs(title = "Candy type win %",
        x = "Types of Candies",
-       y = "Win %")
+       y = "Win %",
+       alpha = NULL)
 
 ggplotly(myBoxPlot, tooltip = "text")
 ```
